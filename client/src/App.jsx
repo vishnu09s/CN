@@ -13,6 +13,8 @@ import CustomersPage from './pages/CustomersPage';
 import OrdersPage from './pages/OrdersPage';
 import DispatchPage from './pages/DispatchPage';
 import TrackingPage from './pages/TrackingPage';
+import PaymentsPage from './pages/PaymentsPage';
+import CustomerLedgerPage from './pages/CustomerLedgerPage';
 
 function App() {
   return (
@@ -69,6 +71,22 @@ function App() {
             }
           />
           <Route path="/tracking" element={<TrackingPage />} />
+          <Route
+            path="/payments"
+            element={
+              <ProtectedRoute>
+                <PaymentsPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/ledger"
+            element={
+              <ProtectedRoute>
+                <CustomerLedgerPage />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
         </Routes>
       </Router>
