@@ -9,6 +9,8 @@ import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
 import InventoryPage from './pages/InventoryPage';
 import PurchasesPage from './pages/PurchasesPage';
+import CustomersPage from './pages/CustomersPage';
+import OrdersPage from './pages/OrdersPage';
 
 function App() {
   return (
@@ -37,6 +39,22 @@ function App() {
             element={
               <ProtectedRoute>
                 <PurchasesPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/customers"
+            element={
+              <ProtectedRoute>
+                <CustomersPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/orders"
+            element={
+              <ProtectedRoute>
+                <OrdersPage />
               </ProtectedRoute>
             }
           />
