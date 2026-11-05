@@ -9,5 +9,6 @@ module.exports = {
   Payment: require('./Payment'),
   Invoice: require('./Invoice'),
   InventoryTransaction: require('./InventoryTransaction'),
+  Dispatch: require('./Dispatch'),
   BusinessSettings: require('./BusinessSettings'),
 };

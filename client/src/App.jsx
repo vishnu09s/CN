@@ -11,6 +11,8 @@ import InventoryPage from './pages/InventoryPage';
 import PurchasesPage from './pages/PurchasesPage';
 import CustomersPage from './pages/CustomersPage';
 import OrdersPage from './pages/OrdersPage';
+import DispatchPage from './pages/DispatchPage';
+import TrackingPage from './pages/TrackingPage';
 
 function App() {
   return (
@@ -58,6 +60,15 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/dispatch"
+            element={
+              <ProtectedRoute>
+                <DispatchPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/tracking" element={<TrackingPage />} />
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
         </Routes>
       </Router>

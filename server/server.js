@@ -37,6 +37,7 @@ app.use('/api/suppliers', require('./routes/supplierRoutes'));
 app.use('/api/purchases', require('./routes/purchaseRoutes'));
 app.use('/api/customers', require('./routes/customerRoutes'));
 app.use('/api/orders', require('./routes/orderRoutes'));
+app.use('/api/dispatch', require('./routes/dispatchRoutes'));
 // app.use('/api/payments', require('./routes/paymentRoutes'));
 // app.use('/api/invoices', require('./routes/invoiceRoutes'));
 // app.use('/api/reports', require('./routes/reportRoutes'));
