@@ -40,7 +40,7 @@ app.use('/api/orders', require('./routes/orderRoutes'));
 app.use('/api/dispatch', require('./routes/dispatchRoutes'));
 app.use('/api/payments', require('./routes/paymentRoutes'));
 app.use('/api/ledger', require('./routes/customerLedgerRoutes'));
-// app.use('/api/invoices', require('./routes/invoiceRoutes'));
+app.use('/api/invoices', require('./routes/invoiceRoutes'));
 // app.use('/api/reports', require('./routes/reportRoutes'));
 // app.use('/api/settings', require('./routes/settingsRoutes'));
 

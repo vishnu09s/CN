@@ -15,6 +15,8 @@ import DispatchPage from './pages/DispatchPage';
 import TrackingPage from './pages/TrackingPage';
 import PaymentsPage from './pages/PaymentsPage';
 import CustomerLedgerPage from './pages/CustomerLedgerPage';
+import InvoicesPage from './pages/InvoicesPage';
+import InvoiceViewPage from './pages/InvoiceViewPage';
 
 function App() {
   return (
@@ -86,6 +88,18 @@ function App() {
                 <CustomerLedgerPage />
               </ProtectedRoute>
             }
+          />
+          <Route
+            path="/invoices"
+            element={
+              <ProtectedRoute>
+                <InvoicesPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/invoices/:invoiceId/view"
+            element={<InvoiceViewPage />}
           />
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
         </Routes>
