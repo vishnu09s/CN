@@ -7,7 +7,9 @@ module.exports = {
   Purchase: require('./Purchase'),
   Order: require('./Order'),
   Payment: require('./Payment'),
+  CustomerLedger: require('./CustomerLedger'),
   Invoice: require('./Invoice'),
   InventoryTransaction: require('./InventoryTransaction'),
+  Dispatch: require('./Dispatch'),
   BusinessSettings: require('./BusinessSettings'),
 };

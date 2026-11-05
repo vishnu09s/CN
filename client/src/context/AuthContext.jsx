@@ -38,6 +38,29 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const register = async (username, email, password, confirmPassword) => {
+    try {
+      const response = await api.post('/auth/register', {
+        username,
+        email,
+        password,
+        confirmPassword
+      });
+      const { token, admin: adminData } = response.data;
+
+      localStorage.setItem('authToken', token);
+      localStorage.setItem('adminData', JSON.stringify(adminData));
+
+      setAdmin(adminData);
+      setIsAuthenticated(true);
+
+      return { success: true, message: 'Registration successful' };
+    } catch (error) {
+      const message = error.response?.data?.message || 'Registration failed';
+      return { success: false, message };
+    }
+  };
+
   const logout = () => {
     localStorage.removeItem('authToken');
     localStorage.removeItem('adminData');
