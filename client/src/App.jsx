@@ -17,6 +17,7 @@ import PaymentsPage from './pages/PaymentsPage';
 import CustomerLedgerPage from './pages/CustomerLedgerPage';
 import InvoicesPage from './pages/InvoicesPage';
 import InvoiceViewPage from './pages/InvoiceViewPage';
+import ReportsPage from './pages/ReportsPage';
 
 function App() {
   return (
@@ -100,6 +101,14 @@ function App() {
           <Route
             path="/invoices/:invoiceId/view"
             element={<InvoiceViewPage />}
+          />
+          <Route
+            path="/reports"
+            element={
+              <ProtectedRoute>
+                <ReportsPage />
+              </ProtectedRoute>
+            }
           />
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
         </Routes>
