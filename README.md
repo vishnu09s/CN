@@ -1,221 +1,354 @@
 # Inventory & Business Management System
 
-A comprehensive, production-ready, 100% web-based inventory and business management system built with MERN stack (MongoDB, Express, React, Node.js).
+A complete, production-ready MERN stack application for managing inventory, orders, customers, payments, dispatches, and business analytics for product-based businesses.
 
-## Tech Stack
+## 🎯 Features
 
-- **Frontend**: React.js + Vite
-- **Backend**: Node.js + Express.js
+### Core Functionality
+- ✅ Complete inventory management with stock tracking
+- ✅ Multi-step order lifecycle management
+- ✅ Customer management with credit limits
+- ✅ Supplier and purchase order tracking
+- ✅ Payment processing with multiple methods
+- ✅ Invoice generation and tracking
+- ✅ Dispatch and delivery management
+- ✅ Real-time tracking for customers
+- ✅ Comprehensive business reports and analytics
+- ✅ Customer ledger with double-entry accounting
+- ✅ Dashboard with real-time statistics
+
+### Technical Features
+- 🔐 JWT authentication with bcrypt password hashing
+- 📱 Responsive mobile-first UI design
+- 📊 Interactive charts and visualizations
+- 🎨 Professional invoice templates
+- 📧 Automatic order status tracking
+- 💾 MongoDB for data persistence
+- 🚀 Optimized performance with aggregation pipelines
+- 🧪 Comprehensive test suite
+- 🐳 Docker containerization
+- 🔄 CI/CD pipeline with GitHub Actions
+
+## 🛠️ Tech Stack
+
+### Backend
+- **Runtime**: Node.js
+- **Framework**: Express.js
 - **Database**: MongoDB
+- **Authentication**: JWT + bcrypt
+- **Validation**: Custom middleware
+
+### Frontend
+- **Framework**: React 18 with Vite
+- **State Management**: Context API
+- **HTTP Client**: Axios
 - **Styling**: Tailwind CSS
-- **Authentication**: JWT
-- **Icons**: Lucide React
 - **Charts**: Recharts
-- **PDF Generation**: jsPDF + html2canvas
-- **API Communication**: Axios
+- **Icons**: Lucide React
+- **Notifications**: React Hot Toast
+- **Routing**: React Router v6
 
-## Features
+## 📋 Prerequisites
 
-### 1. Dashboard
-- Business overview (sales, purchases, revenue, outstanding payments)
-- Order overview with statuses
-- Recent orders and transactions
-- Low-stock alerts
-- Sales and purchase charts
-- Top-selling products
-
-### 2. Inventory Management
-- Product CRUD operations
-- Stock tracking with low-stock alerts
-- Product categories
-- Transaction history
-- Inventory movement logs
-
-### 3. Purchase Management
-- Record purchases from suppliers
-- Track supplier information
-- Multiple products per purchase
-- Automatic inventory updates
-- Purchase history and analytics
-
-### 4. Customer Management
-- Customer profiles
-- Order history
-- Payment history
-- Outstanding balances
-- Customer ledgers
-
-### 5. Order Management
-- Complete order lifecycle (7 statuses)
-- Inventory reservation system
-- Multi-product orders
-- Discount management
-- Order status tracking
-
-### 6. Dispatch & Delivery
-- Dispatch management
-- Delivery tracking
-- Order status updates
-- Dispatch history
-
-### 7. Payment Management
-- Flexible payment options (Cash, UPI, Bank Transfer, Cheque)
-- Partial and full payments
-- Multiple payments per order
-- Payment history tracking
-- Outstanding balance calculation
-
-### 8. Customer Ledger
-- Individual customer accounts
-- Transaction history
-- Outstanding balance calculation
-- Date range filtering
-- PDF export
-
-### 9. Invoice Generation
-- Professional invoice templates
-- PDF download
-- Business information configuration
-- Tax settings
-- Receipt generation
-
-### 10. Reports & Analytics
-- Sales reports (daily, weekly, monthly, annual)
-- Purchase reports
-- Inventory reports
-- Customer outstanding reports
-- Profit and margin analysis
-- PDF and Excel export
-
-### 11. Settings
-- Business information
-- Logo upload
-- Currency and tax settings
-- Invoice configuration
-- Admin password management
-
-## Project Structure
-
-```
-├── server/
-│   ├── models/              # MongoDB schemas
-│   ├── routes/              # API endpoints
-│   ├── controllers/         # Business logic
-│   ├── middleware/          # Auth, validation
-│   ├── config/              # Database, environment
-│   ├── utils/               # Helper functions
-│   └── app.js               # Express app
-├── client/
-│   ├── src/
-│   │   ├── components/      # React components
-│   │   ├── pages/           # Page components
-│   │   ├── api/             # API calls
-│   │   ├── utils/           # Utility functions
-│   │   ├── styles/          # Global styles
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│   ├── vite.config.js
-│   └── package.json
-├── .env.example
-└── package.json
-```
-
-## Setup Instructions
-
-### Prerequisites
-- Node.js (v16+)
-- MongoDB (local or MongoDB Atlas)
+- Node.js 18+
+- MongoDB 5+
 - npm or yarn
+- Git
 
-### Backend Setup
+## 🚀 Installation
 
+### 1. Clone Repository
+```bash
+git clone https://github.com/vishnu09s/CN.git
+cd CN
+```
+
+### 2. Environment Setup
+```bash
+# Copy example env file
+cp .env.example .env
+
+# Update .env with your configuration
+# MONGODB_URI=mongodb://localhost:27017/inventory_management
+# JWT_SECRET=your_secret_key
+```
+
+### 3. Backend Setup
 ```bash
 cd server
 npm install
-cp .env.example .env
-# Update .env with your MongoDB URI and JWT secret
-npm run dev
+npm start
 ```
 
-### Frontend Setup
-
+### 4. Frontend Setup
 ```bash
 cd client
 npm install
 npm run dev
 ```
 
-### Environment Variables
-
-Create `.env` in server directory:
-
-```
-MONGODB_URI=mongodb://localhost:27017/inventory-system
-JWT_SECRET=your-secret-key-here
-JWT_EXPIRE=7d
-PORT=5000
-NODE_ENV=development
+### 5. Database Setup
+Ensure MongoDB is running:
+```bash
+mongod
 ```
 
-## Database Architecture
+## 🐳 Docker Setup
 
-The system uses MongoDB with the following collections:
+### Using Docker Compose (Recommended)
+```bash
+docker-compose up -d
+```
 
-- **Admin**: Admin user credentials and settings
-- **Products**: Product inventory
-- **Categories**: Product categories
-- **Suppliers**: Supplier information
-- **Purchases**: Purchase records
-- **Customers**: Customer information
-- **Orders**: Customer orders
-- **Payments**: Payment records
-- **Invoices**: Generated invoices
-- **InventoryTransactions**: Stock movement history
-- **BusinessSettings**: Business configuration
+This will start:
+- MongoDB on port 27017
+- Backend on port 5000
+- Frontend (access via browser)
 
-## API Documentation
+### Manual Docker Build
+```bash
+# Build image
+docker build -t inventory-management .
 
-### Authentication Routes
-- `POST /api/auth/login` - Admin login
-- `POST /api/auth/logout` - Admin logout
-- `POST /api/auth/change-password` - Change password
+# Run container
+docker run -p 5000:5000 \
+  -e MONGODB_URI=mongodb://mongo:27017/inventory_management \
+  inventory-management
+```
 
-### Product Routes
-- `GET /api/products` - Get all products
-- `GET /api/products/:id` - Get product details
-- `POST /api/products` - Create product
-- `PUT /api/products/:id` - Update product
-- `DELETE /api/products/:id` - Delete product
+## 📦 Project Structure
 
-### Order Routes
-- `GET /api/orders` - Get all orders
-- `POST /api/orders` - Create order
-- `PUT /api/orders/:id` - Update order
-- `PUT /api/orders/:id/status` - Update order status
+```
+CN/
+├── server/                 # Backend
+│   ├── models/            # MongoDB schemas
+│   ├── controllers/       # Business logic
+│   ├── routes/           # API endpoints
+│   ├── middleware/       # Authentication, validation
+│   ├── config/           # Database config
+│   └── server.js         # Entry point
+│
+├── client/                # Frontend
+│   ├── src/
+│   │   ├── pages/       # Page components
+│   │   ├── components/  # Reusable components
+│   │   ├── api/        # API calls
+│   │   ├── layouts/    # Layout wrappers
+│   │   ├── context/    # Context providers
+│   │   └── App.jsx     # Main component
+│   └── package.json
+│
+├── docker-compose.yml    # Docker setup
+├── Dockerfile           # Container image
+└── README.md           # This file
+```
 
-### Payment Routes
-- `GET /api/payments` - Get all payments
-- `POST /api/payments` - Record payment
-- `GET /api/payments/order/:orderId` - Get order payments
+## 🔑 Default Credentials
 
-### More routes documentation coming...
+**Email**: admin@test.com
+**Password**: password123
 
-## Development Stages
+⚠️ Change these immediately in production!
 
-1. ✅ Project setup and database architecture
-2. ⏳ Authentication and dashboard
-3. ⏳ Inventory and purchase management
-4. ⏳ Customer and order management
-5. ⏳ Dispatch and delivery
-6. ⏳ Payment management and customer ledger
-7. ⏳ Invoice generation
-8. ⏳ Reports and analytics
-9. ⏳ Testing and deployment
+## 📖 API Documentation
 
-## License
+See [API_DOCUMENTATION.md](./API_DOCUMENTATION.md) for complete API reference.
 
-Proprietary - Business Management System
+### Quick Examples
 
-## Support
+#### Login
+```bash
+curl -X POST http://localhost:5000/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"email":"admin@test.com","password":"password123"}'
+```
 
-For issues or questions, contact the development team.
+#### List Products
+```bash
+curl http://localhost:5000/api/products \
+  -H "Authorization: Bearer <token>"
+```
+
+## 🗂️ Database Models
+
+### Implemented Models (Stage 1-8)
+1. **Admin** - User authentication
+2. **Category** - Product categories
+3. **Product** - Product inventory
+4. **Supplier** - Supplier information
+5. **Customer** - Customer profiles
+6. **Purchase** - Purchase orders
+7. **Order** - Customer orders
+8. **Payment** - Payment records
+9. **Invoice** - Invoice generation
+10. **InventoryTransaction** - Audit trail
+11. **Dispatch** - Shipment tracking
+12. **CustomerLedger** - Accounting records
+13. **BusinessSettings** - Configuration
+
+## 📊 Features by Stage
+
+### Stage 1: Core Setup
+- Database models
+- Authentication
+- Dashboard
+
+### Stage 2-4: Inventory & Purchasing
+- Product management
+- Category management
+- Supplier management
+- Purchase orders
+
+### Stage 5: Dispatch & Delivery
+- Dispatch creation
+- Tracking numbers
+- Delivery confirmation
+- Customer tracking page
+
+### Stage 6: Payment Management
+- Payment recording
+- Multiple payment methods
+- Customer ledger
+- Balance tracking
+
+### Stage 7: Invoice Generation
+- Auto-generated invoice IDs
+- Professional templates
+- Status tracking
+- Print support
+
+### Stage 8: Reports & Analytics
+- Sales reports
+- Inventory analysis
+- Customer insights
+- Profit/Loss analysis
+- Interactive dashboards
+
+### Stage 9: Testing & Deployment
+- Test suite
+- Docker containerization
+- CI/CD pipeline
+- API documentation
+
+## 🧪 Testing
+
+### Run Tests
+```bash
+cd server
+npm test
+```
+
+### Manual Testing
+1. Start server: `npm start`
+2. Start client: `npm run dev`
+3. Login with default credentials
+4. Test various features
+
+## 📈 Performance Optimization
+
+- MongoDB aggregation pipelines for complex queries
+- Pagination on all list endpoints
+- Indexed fields for faster queries
+- Frontend code splitting with Vite
+- API request caching with axios
+
+## 🔒 Security Features
+
+- JWT authentication
+- Password hashing with bcrypt
+- CORS protection
+- Input validation
+- Error handling without exposing sensitive data
+- Environment variable configuration
+
+## 🚢 Deployment
+
+### Heroku
+```bash
+git push heroku main
+```
+
+### AWS EC2
+1. Launch Ubuntu instance
+2. Install Node.js and MongoDB
+3. Clone repository
+4. Set environment variables
+5. Run `npm start`
+
+### DigitalOcean
+Similar to AWS, use App Platform or Droplets
+
+### Vercel (Frontend only)
+```bash
+cd client
+npm run build
+# Deploy dist folder to Vercel
+```
+
+## 📝 Environment Variables
+
+See `.env.example` for all available variables:
+- `MONGODB_URI` - Database connection
+- `JWT_SECRET` - JWT signing key
+- `PORT` - Server port
+- `NODE_ENV` - Environment (development/production)
+- `CORS_ORIGIN` - Allowed origins
+
+## 🐛 Troubleshooting
+
+### MongoDB Connection Error
+```bash
+# Ensure MongoDB is running
+mongod
+
+# Or use Docker
+docker run -p 27017:27017 mongo:latest
+```
+
+### Port Already in Use
+```bash
+# Change PORT in .env
+PORT=5001
+```
+
+### CORS Error
+```bash
+# Update CORS_ORIGIN in .env
+CORS_ORIGIN=http://your-frontend-url
+```
+
+## 📚 Learn More
+
+- [Express.js Docs](https://expressjs.com/)
+- [React Docs](https://react.dev/)
+- [MongoDB Docs](https://docs.mongodb.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Recharts](https://recharts.org/)
+
+## 🤝 Contributing
+
+1. Create feature branch: `git checkout -b feature/amazing-feature`
+2. Commit changes: `git commit -m 'Add amazing feature'`
+3. Push to branch: `git push origin feature/amazing-feature`
+4. Open Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see LICENSE file for details.
+
+## 👥 Support
+
+For support, email support@inventorysystem.com or open an issue on GitHub.
+
+## 🎉 Acknowledgments
+
+- Built with MERN stack
+- Tailwind CSS for styling
+- Recharts for visualizations
+- MongoDB for data persistence
+
+---
+
+**Last Updated**: November 2024
+**Version**: 1.0.0
+**Status**: Production Ready ✅
