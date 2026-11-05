@@ -28,15 +28,15 @@ app.use('/api/health', (req, res) => {
   res.json({ success: true, message: 'Server is running' });
 });
 
-// API Routes (to be implemented)
-// app.use('/api/auth', require('./routes/authRoutes'));
+// API Routes
+app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/dashboard', require('./routes/dashboardRoutes'));
 // app.use('/api/products', require('./routes/productRoutes'));
 // app.use('/api/orders', require('./routes/orderRoutes'));
 // app.use('/api/customers', require('./routes/customerRoutes'));
 // app.use('/api/purchases', require('./routes/purchaseRoutes'));
 // app.use('/api/payments', require('./routes/paymentRoutes'));
 // app.use('/api/invoices', require('./routes/invoiceRoutes'));
-// app.use('/api/dashboard', require('./routes/dashboardRoutes'));
 // app.use('/api/reports', require('./routes/reportRoutes'));
 // app.use('/api/settings', require('./routes/settingsRoutes'));
 
